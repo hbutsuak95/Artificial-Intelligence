@@ -265,53 +265,49 @@ def depth_return(node):
 
 
 count = 1
-puzzle = [[1,0,3],[4,6,8],[7,5,2]]
-
-astar = AStar(puzzle,type_heuristic = 1)
-astar.search()
-# while (count < 101):
-# 	puzzles = []
-# 	newpuzzle = [1,2,3,4,5,6,7,8,0]
-# 	il = random.choice([0,1])
-# 	if il == 0:
-# 		new = newpuzzle[3:]
-# 		shuffle(new)
-# 		newpuzzle = newpuzzle[:3] + new
-# 	elif il == 1:
-# 		new = newpuzzle[:6]
-# 		shuffle(new) 
-# 		newpuzzle = new + newpuzzle[6:] 
-# 	if newpuzzle in puzzles:
-# 		continue
-# 	if num_inversions(newpuzzle) % 2 != 0:
-# 		# print "TRUE"
-# 		print " Puzzle Not Solvable"
-# 		print newpuzzle
-# 		continue
-# 	puzzle = []
-# 	puzzle.append(newpuzzle[:3])
-# 	puzzle.append(newpuzzle[3:6])
-# 	puzzle.append(newpuzzle[6:]) 
-# 	if depth_return(State(puzzle,type_heuristic = 2)) > 12:
-# 		continue
-# 	else:
+while (count < 101):
+	puzzles = []
+	newpuzzle = [1,2,3,4,5,6,7,8,0]
+	il = random.choice([0,1])
+	if il == 0:
+		new = newpuzzle[3:]
+		shuffle(new)
+		newpuzzle = newpuzzle[:3] + new
+	elif il == 1:
+		new = newpuzzle[:6]
+		shuffle(new) 
+		newpuzzle = new + newpuzzle[6:] 
+	if newpuzzle in puzzles:
+		continue
+	if num_inversions(newpuzzle) % 2 != 0:
+		# print "TRUE"
+		print " Puzzle Not Solvable"
+		print newpuzzle
+		continue
+	puzzle = []
+	puzzle.append(newpuzzle[:3])
+	puzzle.append(newpuzzle[3:6])
+	puzzle.append(newpuzzle[6:]) 
+	if depth_return(State(puzzle,type_heuristic = 2)) > 12:
+		continue
+	else:
 		
-# 		print "Puzzle %d" % count
-# 		print puzzle
-# 		puzzles.append(newpuzzle)
-# 		count += 1
-# 		astar = AStar(puzzle,type_heuristic = 2)
-# 		astar.search()
-# 		astar = AStar(puzzle,type_heuristic = 1)
-# 		astar.search()
-# 		astar = AStar(puzzle,type_heuristic = 0)
-# 		astar.search()
-# 		idastar = IDAstar(puzzle,type_heuristic = 0)
-# 		idastar.search()
-# 		idastar = IDAstar(puzzle,type_heuristic = 1)
-# 		idastar.search()
-# 		idastar = IDAstar(puzzle,type_heuristic = 2)
-# 		idastar.search()
+		print "Puzzle %d" % count
+		print puzzle
+		puzzles.append(newpuzzle)
+		count += 1
+		astar = AStar(puzzle,type_heuristic = 2)
+		astar.search()
+		astar = AStar(puzzle,type_heuristic = 1)
+		astar.search()
+		astar = AStar(puzzle,type_heuristic = 0)
+		astar.search()
+		idastar = IDAstar(puzzle,type_heuristic = 0)
+		idastar.search()
+		idastar = IDAstar(puzzle,type_heuristic = 1)
+		idastar.search()
+		idastar = IDAstar(puzzle,type_heuristic = 2)
+		idastar.search()
 
 
 		# print " Breadth First Search  and IDA* with heuristic 1 taking a long time to terminate, so this puzzle is ignored "
